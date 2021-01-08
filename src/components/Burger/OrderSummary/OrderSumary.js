@@ -3,6 +3,9 @@ import './OrderSummary.scss';
 
 import Aux from '../../../hoc/Aux';
 
+import Button from '../../UI/Button/Button';
+
+
 const orderSummary = (props) => {
 
     const ingredientSummary = Object.keys(props.ingredients).map( obj => {
@@ -22,7 +25,12 @@ const orderSummary = (props) => {
                 {ingredientSummary}
             </ul>
 
+            <p> Total Price: <strong> Q {props.price.toFixed(2)}  </strong> </p>
+
             <p>Continue with checkout </p>
+
+            <Button btnType="Danger" clicked={props.purchaseCanceled} >Cancel</Button>
+            <Button btnType="Success" clicked={props.purchaseContinued} >Continue</Button>
 
         </Aux>
     )
