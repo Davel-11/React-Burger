@@ -10,6 +10,8 @@ const controls = [
     { label: 'Meat', type: 'meat' }
 ];
 
+const orderBotton = "OrderButton";
+
 const buildControls = (props) => (
 
     <div className="BuildControls">
@@ -25,6 +27,13 @@ const buildControls = (props) => (
                 />
            ))
         }
+        
+        <button className={orderBotton}
+            disabled={!props.purchasable}
+            onClick={props.ordered}
+            type="button">
+            Order Now
+        </button>
     </div>
 );
 
